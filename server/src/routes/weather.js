@@ -8,7 +8,10 @@ const router = express.Router()
 
 
 router.get('/', async (req, res) => {
-    const data = await getWeather()
+    const location = req.query.location
+    
+    const data = await getWeather(location)
+
     return res.send({ success: true, data: data })
 })
 
